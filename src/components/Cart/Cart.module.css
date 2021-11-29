@@ -15,8 +15,14 @@
   margin: 1rem 0;
 }
 
+.orderInfo {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
 .actions {
-  text-align: right;
+  text-align: center;
 }
 
 .actions button {
@@ -26,7 +32,7 @@
   border: 1px solid #8a2b06;
   padding: 0.5rem 2rem;
   border-radius: 25px;
-  margin-left: 1rem;
+  margin: 1rem;
 }
 
 .actions button:hover,

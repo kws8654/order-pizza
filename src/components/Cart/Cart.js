@@ -1,12 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Modal } from '../UI/Modal';
 import styles from './Cart.module.css';
 import CartContext from '../../store/CartContext';
 import CartItem from './CartItem';
+import Checkout from './Checkout';
 
 const Cart = ({ hideCart }) => {
+  const [isCheckout, setIsCheckout] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [didSubmit, setDidSubmit] = useState(false);
   const cartCtx = useContext(CartContext);
-
   const totalAmount = `${cartCtx.totalAmount}원`;
   const hasItems = cartCtx.items.length > 0;
 
@@ -16,6 +19,27 @@ const Cart = ({ hideCart }) => {
 
   const cartItemRemoveHandler = (id) => {
     cartCtx.removeItem(id);
+  };
+
+  const orderHandler = () => {
+    setIsCheckout(true);
+  };
+
+  const submitOrderHandler = async (userData) => {
+    setIsSubmitting(true);
+    const res = await fetch(
+      'https://react-practice-9b279-default-rtdb.firebaseio.com/orders.json',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          user: userData,
+          orderedItems: cartCtx.items,
+        }),
+      }
+    );
+    setIsSubmitting(false);
+    setDidSubmit(true);
+    cartCtx.clearCart();
   };
 
   const cartItems = (
@@ -32,20 +56,55 @@ const Cart = ({ hideCart }) => {
       ))}
     </ul>
   );
+  const cartModalContent = (
+    <>
+      {cartItems}
+      {/* <div className={styles.total}>
+        <div>주문 내역</div>
+        <div>{totalAmount}</div>
+      </div> */}
+      {isCheckout && (
+        <Checkout
+          hideCart={hideCart}
+          totalAmount={totalAmount}
+          submitOrder={submitOrderHandler}
+        />
+      )}
+      {!isCheckout && (
+        <div className={styles.actions}>
+          <button className={styles.buttonAlt} onClick={hideCart}>
+            닫기
+          </button>
+          {hasItems && (
+            <button className={styles.button} onClick={orderHandler}>
+              주문
+            </button>
+          )}
+        </div>
+      )}
+    </>
+  );
+
+  const submittingModalContent = (
+    <p className={styles.orderInfo}>주문 처리 중입니다</p>
+  );
+
+  const submitedModalContent = (
+    <>
+      <p className={styles.orderInfo}>주문 완료</p>
+      <div className={styles.actions}>
+        <button className={styles.button} onClick={hideCart}>
+          닫기
+        </button>
+      </div>
+    </>
+  );
 
   return (
     <Modal hideCart={hideCart}>
-      {cartItems}
-      <div className={styles.total}>
-        <div>주문 내역</div>
-        <div>{totalAmount}</div>
-      </div>
-      <div className={styles.actions}>
-        <button className={styles.buttonAlt} onClick={hideCart}>
-          닫기
-        </button>
-        {hasItems && <button className={styles.button}>주문</button>}
-      </div>
+      {!isSubmitting && !didSubmit && cartModalContent}
+      {isSubmitting && submittingModalContent}
+      {!isSubmitting && didSubmit && submitedModalContent}
     </Modal>
   );
 };
