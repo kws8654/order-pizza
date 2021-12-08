@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/flip-page/static/css/main.e0f3650e.chunk.css",
-    "main.js": "/flip-page/static/js/main.e9a1d392.chunk.js",
-    "main.js.map": "/flip-page/static/js/main.e9a1d392.chunk.js.map",
-    "runtime-main.js": "/flip-page/static/js/runtime-main.f79e348d.js",
-    "runtime-main.js.map": "/flip-page/static/js/runtime-main.f79e348d.js.map",
-    "static/js/2.4a256118.chunk.js": "/flip-page/static/js/2.4a256118.chunk.js",
-    "static/js/2.4a256118.chunk.js.map": "/flip-page/static/js/2.4a256118.chunk.js.map",
-    "index.html": "/flip-page/index.html",
-    "static/css/main.e0f3650e.chunk.css.map": "/flip-page/static/css/main.e0f3650e.chunk.css.map",
-    "static/js/2.4a256118.chunk.js.LICENSE.txt": "/flip-page/static/js/2.4a256118.chunk.js.LICENSE.txt"
+    "main.css": "/order-pizza/static/css/main.e0f3650e.chunk.css",
+    "main.js": "/order-pizza/static/js/main.e9a1d392.chunk.js",
+    "main.js.map": "/order-pizza/static/js/main.e9a1d392.chunk.js.map",
+    "runtime-main.js": "/order-pizza/static/js/runtime-main.d79cdda8.js",
+    "runtime-main.js.map": "/order-pizza/static/js/runtime-main.d79cdda8.js.map",
+    "static/js/2.4a256118.chunk.js": "/order-pizza/static/js/2.4a256118.chunk.js",
+    "static/js/2.4a256118.chunk.js.map": "/order-pizza/static/js/2.4a256118.chunk.js.map",
+    "index.html": "/order-pizza/index.html",
+    "static/css/main.e0f3650e.chunk.css.map": "/order-pizza/static/css/main.e0f3650e.chunk.css.map",
+    "static/js/2.4a256118.chunk.js.LICENSE.txt": "/order-pizza/static/js/2.4a256118.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f79e348d.js",
+    "static/js/runtime-main.d79cdda8.js",
     "static/js/2.4a256118.chunk.js",
     "static/css/main.e0f3650e.chunk.css",
     "static/js/main.e9a1d392.chunk.js"
