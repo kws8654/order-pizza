@@ -6,7 +6,7 @@ const Header = ({ showCart }) => {
   return (
     <>
       <header className={styles.header}>
-        <h1>피자 하우스</h1>
+        <h1>PIZZA HOUSE</h1>
         <HeaderCartButton showCart={showCart} />
       </header>
       <div className={styles.mainImage}>

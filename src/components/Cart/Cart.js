@@ -59,10 +59,6 @@ const Cart = ({ hideCart }) => {
   const cartModalContent = (
     <>
       {cartItems}
-      {/* <div className={styles.total}>
-        <div>주문 내역</div>
-        <div>{totalAmount}</div>
-      </div> */}
       {isCheckout && (
         <Checkout
           hideCart={hideCart}
