@@ -10,7 +10,7 @@ const Header = ({ showCart }) => {
         <HeaderCartButton showCart={showCart} />
       </header>
       <div className={styles.mainImage}>
-        <img src='/images/meals.jpeg' alt='Table' />
+        <img src='./images/meals.jpeg' alt='Table' />
       </div>
     </>
   );
